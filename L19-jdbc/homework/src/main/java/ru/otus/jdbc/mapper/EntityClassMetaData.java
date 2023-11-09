@@ -2,6 +2,7 @@ package ru.otus.jdbc.mapper;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.sql.ResultSet;
 import java.util.List;
 
 /**
@@ -19,4 +20,10 @@ public interface EntityClassMetaData<T> {
     List<Field> getAllFields();
 
     List<Field> getFieldsWithoutId();
+
+    T getEntityInstance(ResultSet rs);
+
+    List<Object> getEntityFieldsWithoutIdValues(T entity);
+
+    Object getEntityIdFieldValue(T entity);
 }
